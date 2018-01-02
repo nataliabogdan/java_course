@@ -3,15 +3,18 @@ package plopik.addressbook;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
+
 import static org.testng.Assert.*;
 
 import java.util.concurrent.TimeUnit;
 import java.util.Date;
 import java.io.File;
+
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
+
 import static org.openqa.selenium.OutputType.*;
 
 public class GroupCreationTests {
@@ -34,7 +37,12 @@ public class GroupCreationTests {
         wd.findElement(By.name("pass")).clear();
         wd.findElement(By.name("pass")).sendKeys("secret");
         wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
-        wd.findElement(By.xpath("//li[contains(@class,'admin')]/a")).click();
+
+        //different selectors
+        //wd.findElement(By.xpath("//li[contains(@class,'admin')]/a")).click(); //first variant
+        //wd.findElement(By.xpath("//ul//a[contains(@href, 'group.php')]")).click(); //second variant
+
+        wd.findElementByXPath("//a[@href='group.php']").click(); //third variant
         wd.findElement(By.name("new")).click();
         wd.findElement(By.name("group_name")).click();
         wd.findElement(By.name("group_name")).clear();
