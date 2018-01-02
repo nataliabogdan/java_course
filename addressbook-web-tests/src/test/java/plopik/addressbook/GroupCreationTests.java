@@ -25,7 +25,7 @@ public class GroupCreationTests {
 
     @Test
     public void GroupCreationTests() {
-        wd.get("http://localhost/addressbook/group.php");
+        wd.get("http://localhost/addressbook");
         wd.findElement(By.id("LoginForm")).click();
         wd.findElement(By.name("user")).click();
         wd.findElement(By.name("user")).clear();
@@ -34,8 +34,7 @@ public class GroupCreationTests {
         wd.findElement(By.name("pass")).clear();
         wd.findElement(By.name("pass")).sendKeys("secret");
         wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
-        //wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wd.findElement(By.cssSelector("a[href*='/group.php']")).click();
+        wd.findElement(By.xpath("//li[contains(@class,'admin')]/a")).click();
         wd.findElement(By.name("new")).click();
         wd.findElement(By.name("group_name")).click();
         wd.findElement(By.name("group_name")).clear();
