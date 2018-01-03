@@ -1,4 +1,4 @@
-package plopik.addressbook;
+package plopik.addressbook.model;
 
 public class GroupData {
     private final String name;

@@ -1,4 +1,4 @@
-package plopik.addressbook;
+package plopik.addressbook.model;
 
 public class ContactData {
     private final String firstName;
