@@ -108,7 +108,20 @@ public class TestBase {
         wd.findElement(By.name("delete")).click();
     }
 
+    protected void deleteContact(){
+        wd.findElementByXPath("//input[contains(@value, 'Delete')]").click();
+    }
+
     protected void selectGroup() {
         wd.findElementByXPath("//span/input[contains(@type, 'checkbox')]").click();
+    }
+
+    protected void selectContact(){
+        wd.findElementByXPath("//input[contains(@name, 'selected[]')]").click();
+    }
+
+    protected void acceptAllert(){
+        wd.switchTo().alert().accept();
+
     }
 }
