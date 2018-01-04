@@ -3,31 +3,31 @@ package plopik.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class NavigationHelper {
-    private FirefoxDriver wd;
+public class NavigationHelper extends HelperBase{
 
     public NavigationHelper(FirefoxDriver wd) {
-        this.wd = wd;
+        super(wd);
     }
 
     public void gotoGroupPage() {
         //different selectors
         //wd.findElement(By.xpath("//li[contains(@class,'admin')]/a")).click(); //first variant
         //wd.findElement(By.xpath("//ul//a[contains(@href, 'group.php')]")).click(); //second variant
+        click(By.xpath("//a[@href='group.php']"));
 
-        wd.findElementByXPath("//a[@href='group.php']").click(); //third variant
+        //wd.findElementByXPath("//a[@href='group.php']").click(); //third variant
     }
 
     public void gotoContactPage() {
-        wd.findElementByXPath("//a[contains(text(),'home')]").click();
+        click(By.xpath("//a[contains(text(),'home')]"));
     }
 
 
     public void returnToGroupPage() {
-        wd.findElement(By.linkText("group page")).click();
+        click(By.linkText("group page"));
     }
 
     public void returnToContactPage() {
-        wd.findElementByXPath("//a[contains(text(), 'home')]").click();
+        click(By.xpath("//a[contains(text(), 'home')]"));
     }
 }
