@@ -32,4 +32,12 @@ public class GroupHelper extends BaseHelper {
         click(By.xpath("//span/input[contains(@type, 'checkbox')]"));
         //wd.findElementByXPath("//span/input[contains(@type, 'checkbox')]").click();
     }
+
+    public void initGroupModification() {
+        click(By.name("edit"));
+    }
+
+    public void submitGroupModification() {
+        click(By.name("update"));
+    }
 }

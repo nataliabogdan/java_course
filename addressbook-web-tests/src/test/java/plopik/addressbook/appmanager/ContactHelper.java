@@ -35,4 +35,11 @@ public class ContactHelper extends BaseHelper {
         click(By.xpath("//input[contains(@name, 'selected[]')]"));
     }
 
+    public void initContactModification() {
+        click(By.xpath("//a[contains(@href, '')]/img[contains(@title, 'Edit')]"));
+    }
+
+    public void submitContactModification() {
+        click(By.name("update"));
+    }
 }
