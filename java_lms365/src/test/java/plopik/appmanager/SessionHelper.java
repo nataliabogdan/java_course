@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public class SessionHelper extends BaseHelper{
-    public WebDriverWait wait;
+    WebDriverWait wait;
 
     public SessionHelper(FirefoxDriver wd) {
         super(wd);

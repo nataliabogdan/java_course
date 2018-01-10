@@ -9,6 +9,7 @@ public class ApplicationManager {
 
     FirefoxDriver wd;
 
+
     private SessionHelper sessionHelper;
     private  NavigationHelper navigationHelper;
 
