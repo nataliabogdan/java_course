@@ -6,8 +6,7 @@ public class CourseCreationTests extends TestBase{
 
     @Test
     public void testGoToCourseCatalog(){
-        app.wd.get("https://lms365qa.sharepoint.com/sites/basic flow/_layouts/15/appredirect.aspx?instance_id={2fb42468-c7ae-4329-9e56-ebe12927573b}");
-
+        app.getNavigationHelper().goToCourseCatalog();
     }
 
 }
