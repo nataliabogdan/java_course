@@ -1,4 +1,4 @@
-package plopik;
+package plopik.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -9,10 +9,10 @@ import java.util.concurrent.TimeUnit;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public class ApplicationManager {
-    FirefoxDriver wd;
-    WebDriverWait wait;
+    public FirefoxDriver wd;
+    public WebDriverWait wait;
 
-    protected void init() {
+    public void init() {
         wd = new FirefoxDriver();
         wait = new WebDriverWait(wd,10);
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -30,21 +30,21 @@ public class ApplicationManager {
 //        wd.findElement(By.id("idBtn_Back")).click();
     }
 
-    private void waitElement(By locator) {
+    public void waitElement(By locator) {
         wait.until(visibilityOfElementLocated(locator));
     }
 
-    private void type(By locator, String text) {
+    public void type(By locator, String text) {
         click(locator);
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
     }
 
-    private void click(By locator) {
+    public void click(By locator) {
         wd.findElement(locator).click();
     }
 
-    protected void stop() {
+    public void stop() {
         wd.quit();
     }
 }

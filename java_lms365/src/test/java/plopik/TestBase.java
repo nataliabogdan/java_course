@@ -2,6 +2,7 @@ package plopik;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import plopik.appmanager.ApplicationManager;
 
 public class TestBase {
 
