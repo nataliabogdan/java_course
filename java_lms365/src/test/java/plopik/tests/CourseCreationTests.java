@@ -1,8 +1,8 @@
-package plopik;
+package plopik.tests;
 
 import org.testng.annotations.Test;
 
-public class CourseCreationTests extends TestBase{
+public class CourseCreationTests extends TestBase {
 
     @Test
     public void testGoToCourseCatalog(){

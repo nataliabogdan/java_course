@@ -1,4 +1,4 @@
-package plopik;
+package plopik.tests;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
