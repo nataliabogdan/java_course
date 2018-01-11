@@ -1,24 +1,22 @@
 package plopik.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public class SessionHelper extends BaseHelper{
-    WebDriverWait wait;
+//    WebDriverWait wait;
 
-    public SessionHelper(FirefoxDriver wd) {
+    public SessionHelper(WebDriver wd) {
         super(wd);
-
     }
 
     protected void login(String username, String password) {
-        wait = new WebDriverWait(wd,10);
+//        wait = new WebDriverWait(wd,10);
         type(By.name("loginfmt"), username);
         click(By.xpath("//input[contains(@type, 'submit')]"));
-        wait.until(visibilityOfElementLocated(By.name("passwd")));
+//        wait.until(visibilityOfElementLocated(By.name("passwd")));
+        waitElement(By.name("passwd"), 10);
         type(By.name("passwd"), password);
         click(By.xpath("//input[contains(@type, 'submit')]"));
 //        wait.until(visibilityOfElementLocated(By.id("idBtn_Back")));

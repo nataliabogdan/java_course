@@ -2,15 +2,21 @@ package plopik.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public class BaseHelper {
-    protected FirefoxDriver wd;
+    protected WebDriver wd;
+    WebDriverWait wait;
 
-    public BaseHelper(FirefoxDriver wd) {
+
+    public BaseHelper(WebDriver wd) {
         this.wd = wd;
     }
 
@@ -24,6 +30,10 @@ public class BaseHelper {
         wd.findElement(locator).click();
     }
 
+    public void waitElement(By locator, int seconds){
+        wait = new WebDriverWait(wd,seconds);
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
 
     public boolean isAlertPresent() {
         try {
