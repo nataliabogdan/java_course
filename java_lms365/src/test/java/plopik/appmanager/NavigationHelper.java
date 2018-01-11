@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class NavigationHelper extends BaseHelper {
 
     public NavigationHelper(WebDriver wd) {
@@ -15,7 +17,7 @@ public class NavigationHelper extends BaseHelper {
     }
 
     public void returnToCourseListPage() {
-//        click(By.cssSelector("i[data-icon-name=IconLink]"));
-        click(By.cssSelector("span.icon-left-arrow"));
+        waitElement(By.cssSelector("div.courseCreatedInfo"), 10);
+        wd.findElement(By.cssSelector("span.icon-left-arrow")).click();
     }
 }

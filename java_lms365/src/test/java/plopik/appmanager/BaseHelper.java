@@ -31,8 +31,8 @@ public class BaseHelper {
     }
 
     public void waitElement(By locator, int seconds){
-        wait = new WebDriverWait(wd,seconds);
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
+        wait = new WebDriverWait(wd, seconds);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     public boolean isAlertPresent() {
