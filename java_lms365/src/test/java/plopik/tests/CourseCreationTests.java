@@ -7,6 +7,11 @@ public class CourseCreationTests extends TestBase {
     @Test
     public void testGoToCourseCatalog(){
         app.getNavigationHelper().goToCourseCatalog();
+        app.getCourseHelper().initElearningCourseCreation();
+        app.getCourseHelper().fillCourseForm();
+        app.getCourseHelper().submitCourseCreation();
+        app.getNavigationHelper().returnToCourseListPage();
+
     }
 
 }
