@@ -17,7 +17,6 @@ public class NavigationHelper extends BaseHelper {
     }
 
     public void returnToCourseListPage() {
-        waitElement(By.cssSelector("div.courseCreatedInfo"), 10);
         wd.findElement(By.cssSelector("span.icon-left-arrow")).click();
     }
 }

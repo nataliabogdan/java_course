@@ -3,14 +3,8 @@ package plopik.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.concurrent.TimeUnit;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
+import org.testng.Assert;
+import plopik.model.CourseData;
 
 public class CourseHelper extends BaseHelper {
 
@@ -23,27 +17,35 @@ public class CourseHelper extends BaseHelper {
         click(By.xpath("//button[contains(@name, 'e-Learning')]"));
     }
 
-    public void fillCourseForm() {
-        type(By.id("CourseName"), "aelearning8");
-        type(By.id("Description"), "description1");
-        typeCategory(By.cssSelector("#token-input-Categories_SelectedItems"), "elearning category");
+    public void fillCourseForm(String courseName, String shortDescription, String courseCategory ) {
+        type(By.id("CourseName"), courseName);
+        type(By.id("Description"), shortDescription);
+        typeCategory(By.cssSelector("#token-input-Categories_SelectedItems"), courseCategory);
     }
 
     private void typeCategory(By locator, String text) {
         wd.findElement(locator).clear();
 //        System.out.println(wd.findElement(By.xpath("//div/ul/li[contains(text(), 'elearning category')]")).getText());
-        wd.findElement(By.xpath("//div/ul/li[contains(text(), 'elearning category')]")).click();
+        wd.findElement(By.xpath("//div/ul/li[contains(text(), '" + text + "')]")).click();
 //        try {
 //            wd.findElement(By.xpath("//div[23]/ul/li[contains(text(), 'elearning category')]")).click();
 //            Thread.sleep(5000);
 //        } catch (Exception ex){
 //            System.out.println("Error");
 //        }
-
     }
 
     public void submitCourseCreation() {
         click(By.cssSelector("a.create-course"));
+        waitElement(By.cssSelector("div.courseCreatedInfo"), 10);
+    }
 
+    public void checkCourseInList(String courseName) {
+        click(By.cssSelector("input#SearchBox22"));
+        type(By.cssSelector("input#SearchBox22"), courseName);
+        wd.findElement(By.cssSelector("input#SearchBox22")).sendKeys(Keys.ENTER);
+        waitElement(By.xpath("//div[@class = 'ms-List-page']//span[@title = '" + courseName + "']"), 10);
+        //System.out.println(wd.findElement(By.xpath("//div[@class = 'ms-List-page']//span[@title = '" + text + "']")).getText());
+        Assert.assertEquals(wd.findElement(By.xpath("//div[@class = 'ms-List-page']//span[@title = '" + courseName + "']")).getText(), courseName);
     }
 }
