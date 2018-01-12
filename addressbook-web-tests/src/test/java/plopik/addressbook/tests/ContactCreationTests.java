@@ -1,7 +1,7 @@
-package plopik.lms365.addressbook.tests;
+package plopik.addressbook.tests;
 
 import org.testng.annotations.Test;
-import plopik.lms365.addressbook.model.ContactData;
+import plopik.addressbook.model.ContactData;
 
 
 public class ContactCreationTests extends TestBase {

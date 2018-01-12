@@ -1,4 +1,4 @@
-package plopik.lms365.addressbook.model;
+package plopik.addressbook.model;
 
 public class ContactData {
     private final String firstName;

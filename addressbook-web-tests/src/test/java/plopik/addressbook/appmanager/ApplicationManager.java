@@ -1,4 +1,4 @@
-package plopik.lms365.addressbook.appmanager;
+package plopik.addressbook.appmanager;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

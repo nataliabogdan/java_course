@@ -1,4 +1,4 @@
-package plopik.lms365.addressbook.tests;
+package plopik.addressbook.tests;
 
 import org.testng.annotations.Test;
 

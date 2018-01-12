@@ -1,9 +1,9 @@
-package plopik.lms365.addressbook.tests;
+package plopik.addressbook.tests;
 
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import plopik.lms365.addressbook.appmanager.ApplicationManager;
+import plopik.addressbook.appmanager.ApplicationManager;
 
 public class TestBase {
 

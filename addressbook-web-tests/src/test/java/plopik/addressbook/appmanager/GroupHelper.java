@@ -1,8 +1,8 @@
-package plopik.lms365.addressbook.appmanager;
+package plopik.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import plopik.lms365.addressbook.model.GroupData;
+import plopik.addressbook.model.GroupData;
 
 public class GroupHelper extends BaseHelper {
 
