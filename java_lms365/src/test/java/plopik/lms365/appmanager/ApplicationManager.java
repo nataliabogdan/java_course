@@ -29,6 +29,7 @@ public class ApplicationManager {
         } else if (browser.equals(BrowserType.IE)) {
             wd = new InternetExplorerDriver();
         }
+        wd.manage().window().maximize();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.get("https://lms365qa.sharepoint.com/sites/basic flow");
         sessionHelper = new SessionHelper(wd);

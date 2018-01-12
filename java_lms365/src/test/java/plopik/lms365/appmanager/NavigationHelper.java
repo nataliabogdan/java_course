@@ -14,6 +14,6 @@ public class NavigationHelper extends BaseHelper {
     }
 
     public void returnToCourseListPage() {
-        wd.findElement(By.cssSelector("span.icon-left-arrow")).click();
+        wd.findElement(By.xpath("//i[@class='ms-Icon css-liugll ms-Icon--Home iconLink_19431fb2']")).click();
     }
 }

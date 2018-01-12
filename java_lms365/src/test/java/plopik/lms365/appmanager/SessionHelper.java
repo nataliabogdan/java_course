@@ -13,7 +13,7 @@ public class SessionHelper extends BaseHelper{
     protected void login(String username, String password) {
         type(By.name("loginfmt"), username);
         click(By.xpath("//input[contains(@type, 'submit')]"));
-        waitElement(By.name("passwd"), 10);
+        waitElementIsVisible(By.name("passwd"), 10);
         type(By.name("passwd"), password);
         click(By.xpath("//input[contains(@type, 'submit')]"));
 

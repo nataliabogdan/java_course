@@ -14,6 +14,7 @@ public class CourseCreationTests extends TestBase {
         app.getCourseHelper().fillCourseForm(courseData.getCourseName(), courseData.getShortDescription(), courseData.getCourseCategory());
         app.getCourseHelper().submitCourseCreation();
         app.getNavigationHelper().returnToCourseListPage();
+        app.getCourseHelper().filterByCourseName(courseData.getCourseName());
         app.getCourseHelper().checkCourseInList(courseData.getCourseName());
     }
 

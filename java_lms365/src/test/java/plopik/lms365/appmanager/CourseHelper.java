@@ -36,15 +36,35 @@ public class CourseHelper extends BaseHelper {
 
     public void submitCourseCreation() {
         click(By.cssSelector("a.create-course"));
-        waitElement(By.cssSelector("div.courseCreatedInfo"), 10);
+        waitElementIsVisible(By.cssSelector("div.courseCreatedInfo"), 10);
     }
 
     public void checkCourseInList(String courseName) {
-        click(By.cssSelector("input#SearchBox22"));
-        type(By.cssSelector("input#SearchBox22"), courseName);
-        wd.findElement(By.cssSelector("input#SearchBox22")).sendKeys(Keys.ENTER);
-        waitElement(By.xpath("//div[@class = 'ms-List-page']//span[@title = '" + courseName + "']"), 10);
         //System.out.println(wd.findElement(By.xpath("//div[@class = 'ms-List-page']//span[@title = '" + text + "']")).getText());
         Assert.assertEquals(wd.findElement(By.xpath("//div[@class = 'ms-List-page']//span[@title = '" + courseName + "']")).getText(), courseName);
     }
+
+    public void filterByCourseName(String courseName) {
+        click(By.cssSelector("input[placeholder='Search']"));
+        type(By.cssSelector("input[placeholder='Search']"), courseName);
+        wd.findElement(By.cssSelector("input[placeholder='Search']")).sendKeys(Keys.ENTER);
+        waitElementIsVisible(By.xpath("//div[@class = 'ms-List-page']"), 3);
+    }
+
+    public void checkCourseNotInList() {
+        //System.out.println(wd.findElement(By.xpath("//div[@class = 'ms-List-page']//div[text()]")).getText());
+        Assert.assertEquals(wd.findElement(By.xpath("//div[@class = 'ms-List-page']//div[text()]")).getText(), "No item(s) found.");
+    }
+
+    public void selectCourse(String courseName) {
+        click(By.xpath("//span[@title='" + courseName + "']"));
+    }
+
+    public void deleteCourse(){
+        click(By.xpath("//i[@data-icon-name='Trash']"));
+        click(By.xpath("//span//button[@class= 'ms-Button ms-Button--primary css-18s71b6']"));
+//        waitElementIsVisible(By.xpath("//div[contains(@class,'ef-dialog-container')]"),1);
+        waitElementIsNotVisible(By.xpath("//span//button[@class= 'ms-Button ms-Button--primary css-18s71b6']"), 1);
+    }
+
 }
