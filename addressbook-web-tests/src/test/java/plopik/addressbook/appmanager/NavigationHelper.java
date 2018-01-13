@@ -34,10 +34,6 @@ public class NavigationHelper extends BaseHelper {
         }
     }
 
-    public void returnToGroupPage() {
-        click(By.linkText("group page"));
-    }
-
     public void returnToContactPage() {
         click(By.xpath("//a[contains(text(), 'home')]"));
     }

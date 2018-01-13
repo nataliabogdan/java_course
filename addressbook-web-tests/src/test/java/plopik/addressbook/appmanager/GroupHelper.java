@@ -40,4 +40,20 @@ public class GroupHelper extends BaseHelper {
     public void submitGroupModification() {
         click(By.name("update"));
     }
+
+    public void returnToGroupPage() {
+        click(By.linkText("group page"));
+    }
+
+
+    public boolean isGroupExist() {
+        return isElementPresent(By.xpath("//span/input[contains(@type, 'checkbox')]"));
+    }
+
+    public void createGroup(GroupData groupData) {
+        initGroupCreation();
+        fillGroupForm(groupData);
+        submitGroupCreation();
+        returnToGroupPage();
+    }
 }
