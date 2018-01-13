@@ -18,7 +18,7 @@ public class CourseHelper extends BaseHelper {
         click(By.xpath("//button[contains(@name, 'e-Learning')]"));
     }
 
-    public void fillCourseForm(String courseName, String shortDescription, String courseCategory ) {
+    public void fillCourseForm(String courseName, String shortDescription, String courseCategory) {
         type(By.id("CourseName"), courseName);
         type(By.id("Description"), shortDescription);
         typeCategory(By.cssSelector("#token-input-Categories_SelectedItems"), courseCategory);
@@ -47,11 +47,13 @@ public class CourseHelper extends BaseHelper {
     }
 
     public void filterByCourseName(String courseName) {
-        waitElementIsClickable(By.cssSelector("input[placeholder='Search']"), 10);
-        click(By.cssSelector("input[placeholder='Search']"));
-        type(By.cssSelector("input[placeholder='Search']"), courseName);
-        wd.findElement(By.cssSelector("input[placeholder='Search']")).sendKeys(Keys.ENTER);
-        waitElementIsVisible(By.xpath("//div[@class = 'ms-List-page']"), 10);
+        if (courseName != null) {
+            waitElementIsClickable(By.cssSelector("input[placeholder='Search']"), 10);
+            click(By.cssSelector("input[placeholder='Search']"));
+            type(By.cssSelector("input[placeholder='Search']"), courseName);
+            wd.findElement(By.cssSelector("input[placeholder='Search']")).sendKeys(Keys.ENTER);
+            waitElementIsVisible(By.xpath("//div[@class = 'ms-List-page']"), 10);
+        }
     }
 
     public void checkCourseNotInList() {
@@ -59,11 +61,15 @@ public class CourseHelper extends BaseHelper {
         Assert.assertEquals(wd.findElement(By.xpath("//div[@class = 'ms-List-page']//div[text()]")).getText(), "No item(s) found.");
     }
 
-    public void selectCourse(String courseName) {
-        click(By.xpath("//span[@title='" + courseName + "']"));
+    public void selectCourseByName(String courseName) {
+        if (courseName != null) {
+            click(By.xpath("//span[@title='" + courseName + "']"));
+        }
+        click(By.xpath("//div[@class='ms-List-page']//span[contains(text(),'')]"));
     }
 
-    public void deleteCourse(){
+
+    public void deleteCourse() {
         click(By.xpath("//i[@data-icon-name='Trash']"));
         click(By.xpath("//span//button[@class= 'ms-Button ms-Button--primary css-18s71b6']"));
 //        waitElementIsVisible(By.xpath("//div[contains(@class,'ef-dialog-container')]"),1);

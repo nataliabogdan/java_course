@@ -14,6 +14,11 @@ public class NavigationHelper extends BaseHelper {
     }
 
     public void returnToCourseListPage() {
-        wd.findElement(By.xpath("//i[@class='ms-Icon css-liugll ms-Icon--Home iconLink_19431fb2']")).click();
+//        if(isElementPresent(By.xpath("//div[@id='btn-page-header']"))
+//                && wd.findElement(By.xpath("//div[text()='Create Course']")).getText().equals("Create Course"))
+//        {
+//            return;
+//        }
+        wd.findElement(By.xpath("//i[contains(@class, 'ms-Icon--Home')]")).click();
     }
 }
