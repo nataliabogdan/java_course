@@ -42,16 +42,16 @@ public class CourseHelper extends BaseHelper {
         waitElementIsVisible(By.cssSelector("div.courseCreatedInfo"), 10);
     }
 
-    public void checkCourseInList(String courseName) {
+    public void checkCourseInList(CourseData courseData) {
         //System.out.println(wd.findElement(By.xpath("//div[@class = 'ms-List-page']//span[@title = '" + text + "']")).getText());
-        Assert.assertEquals(wd.findElement(By.xpath("//div[@class = 'ms-List-page']//span[@title = '" + courseName + "']")).getText(), courseName);
+        Assert.assertEquals(wd.findElement(By.xpath("//div[@class = 'ms-List-page']//span[@title = '" + courseData.getCourseName() + "']")).getText(), courseData.getCourseName());
     }
 
-    public void filterByCourseName(String courseName) {
-        if (courseName != null) {
+    public void filterByCourseName(CourseData courseData) {
+        if (courseData.getCourseName() != null) {
             waitElementIsClickable(By.cssSelector("input[placeholder='Search']"), 10);
             click(By.cssSelector("input[placeholder='Search']"));
-            type(By.cssSelector("input[placeholder='Search']"), courseName);
+            type(By.cssSelector("input[placeholder='Search']"), courseData.getCourseName());
             wd.findElement(By.cssSelector("input[placeholder='Search']")).sendKeys(Keys.ENTER);
             waitElementIsVisible(By.xpath("//div[@class = 'ms-List-page']"), 10);
         }
@@ -62,10 +62,10 @@ public class CourseHelper extends BaseHelper {
         Assert.assertEquals(wd.findElement(By.xpath("//div[@class = 'ms-List-page']//div[text()]")).getText(), "No item(s) found.");
     }
 
-    public void selectCourseByName(String courseName) {
-        if (courseName != null) {
-            waitElementIsNotVisible(By.xpath("//div/span[text()='" + courseName + "']/../../..//div[contains(@class, 'ms-Spinner')]"), 80);
-            click(By.xpath("//div[@class='ms-List-page']//span[contains(text(),'" + courseName + "')]//.."));
+    public void selectCourseByName(CourseData courseData) {
+        if (courseData.getCourseName() != null) {
+            waitElementIsNotVisible(By.xpath("//div/span[text()='" + courseData.getCourseName() + "']/../../..//div[contains(@class, 'ms-Spinner')]"), 80);
+            click(By.xpath("//div[@class='ms-List-page']//span[contains(text(),'" + courseData.getCourseName() + "')]//.."));
         }
         click(By.xpath("//div[@class='ms-List-page']//span[contains(text(),'')]"));
     }

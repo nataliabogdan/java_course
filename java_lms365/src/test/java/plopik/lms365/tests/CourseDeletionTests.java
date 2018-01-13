@@ -7,7 +7,7 @@ public class CourseDeletionTests extends TestBase{
 
     @Test
     public void testCourseDeletion(){
-        CourseData courseData = new CourseData("e30", null, null);
+        CourseData courseData = new CourseData(null, null, null);
         app.getNavigationHelper().goToCourseCatalog();
         if(! app.getCourseHelper().isCourseExist()){
             app.getCourseHelper().initElearningCourseCreation();
@@ -15,9 +15,9 @@ public class CourseDeletionTests extends TestBase{
             app.getCourseHelper().submitCourseCreation();
             app.getNavigationHelper().returnToCourseListPage();
         }
-        app.getCourseHelper().selectCourseByName(courseData.getCourseName());
+        app.getCourseHelper().selectCourseByName(courseData);
         app.getCourseHelper().deleteCourse();
-        app.getCourseHelper().filterByCourseName(courseData.getCourseName());
+        app.getCourseHelper().filterByCourseName(courseData);
 //        app.getCourseHelper().checkCourseNotInList(); //hidden because if we select random course
 
     }
