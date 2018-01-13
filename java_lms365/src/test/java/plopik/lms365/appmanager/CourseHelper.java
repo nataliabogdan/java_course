@@ -5,6 +5,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
+import java.util.concurrent.TimeUnit;
+
 public class CourseHelper extends BaseHelper {
 
     public CourseHelper(WebDriver wd) {
@@ -45,10 +47,11 @@ public class CourseHelper extends BaseHelper {
     }
 
     public void filterByCourseName(String courseName) {
+        waitElementIsClickable(By.cssSelector("input[placeholder='Search']"), 10);
         click(By.cssSelector("input[placeholder='Search']"));
         type(By.cssSelector("input[placeholder='Search']"), courseName);
         wd.findElement(By.cssSelector("input[placeholder='Search']")).sendKeys(Keys.ENTER);
-        waitElementIsVisible(By.xpath("//div[@class = 'ms-List-page']"), 3);
+        waitElementIsVisible(By.xpath("//div[@class = 'ms-List-page']"), 10);
     }
 
     public void checkCourseNotInList() {
@@ -64,7 +67,8 @@ public class CourseHelper extends BaseHelper {
         click(By.xpath("//i[@data-icon-name='Trash']"));
         click(By.xpath("//span//button[@class= 'ms-Button ms-Button--primary css-18s71b6']"));
 //        waitElementIsVisible(By.xpath("//div[contains(@class,'ef-dialog-container')]"),1);
-        waitElementIsNotVisible(By.xpath("//span//button[@class= 'ms-Button ms-Button--primary css-18s71b6']"), 1);
+        wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        waitElementIsNotVisible(By.xpath("//span//button[@class= 'ms-Button ms-Button--primary css-18s71b6']"), 5);
     }
 
 }

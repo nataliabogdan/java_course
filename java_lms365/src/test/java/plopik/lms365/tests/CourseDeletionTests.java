@@ -7,7 +7,7 @@ public class CourseDeletionTests extends TestBase{
 
     @Test
     public void testCourseDeletion(){
-        CourseData courseData = new CourseData("e15", null, null);
+        CourseData courseData = new CourseData("e16", null, null);
         app.getNavigationHelper().goToCourseCatalog();
         app.getCourseHelper().selectCourse(courseData.getCourseName());
         app.getCourseHelper().deleteCourse();

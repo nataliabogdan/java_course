@@ -38,6 +38,12 @@ public class BaseHelper {
         System.out.println("Element is hidden" + locator);
     }
 
+    public void waitElementIsClickable(By locator, int seconds) {
+        wait = new WebDriverWait(wd, seconds);
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+
+    }
+
     public void acceptAlert() {
         wd.switchTo().alert().accept();
     }

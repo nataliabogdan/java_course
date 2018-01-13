@@ -7,7 +7,7 @@ public class CourseCreationTests extends TestBase {
 
     @Test
     public void testGoToCourseCatalog(){
-        CourseData courseData = new CourseData("e15", "desc1", "elearning category");
+        CourseData courseData = new CourseData("e16", "desc1", "elearning category");
 
         app.getNavigationHelper().goToCourseCatalog();
         app.getCourseHelper().initElearningCourseCreation();

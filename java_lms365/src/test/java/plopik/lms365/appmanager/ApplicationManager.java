@@ -30,7 +30,7 @@ public class ApplicationManager {
             wd = new InternetExplorerDriver();
         }
         wd.manage().window().maximize();
-        wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         wd.get("https://lms365qa.sharepoint.com/sites/basic flow");
         sessionHelper = new SessionHelper(wd);
         navigationHelper = new NavigationHelper(wd);
