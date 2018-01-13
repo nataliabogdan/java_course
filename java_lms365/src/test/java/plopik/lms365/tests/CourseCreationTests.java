@@ -7,11 +7,11 @@ public class CourseCreationTests extends TestBase {
 
     @Test
     public void testGoToCourseCatalog(){
-        CourseData courseData = new CourseData("e18", "desc1", "elearning category");
+        CourseData courseData = new CourseData("e19", "desc1", "elearning category");
 
         app.getNavigationHelper().goToCourseCatalog();
         app.getCourseHelper().initElearningCourseCreation();
-        app.getCourseHelper().fillCourseForm(courseData.getCourseName(), courseData.getShortDescription(), courseData.getCourseCategory());
+        app.getCourseHelper().fillCourseForm(courseData);
         app.getCourseHelper().submitCourseCreation();
         app.getNavigationHelper().returnToCourseListPage();
         app.getCourseHelper().filterByCourseName(courseData.getCourseName());

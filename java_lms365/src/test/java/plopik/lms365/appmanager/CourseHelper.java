@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import plopik.lms365.model.CourseData;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,10 +19,10 @@ public class CourseHelper extends BaseHelper {
         click(By.xpath("//button[contains(@name, 'e-Learning')]"));
     }
 
-    public void fillCourseForm(String courseName, String shortDescription, String courseCategory) {
-        type(By.id("CourseName"), courseName);
-        type(By.id("Description"), shortDescription);
-        typeCategory(By.cssSelector("#token-input-Categories_SelectedItems"), courseCategory);
+    public void fillCourseForm(CourseData courseData) {
+        type(By.id("CourseName"), courseData.getCourseName());
+        type(By.id("Description"), courseData.getShortDescription());
+        typeCategory(By.cssSelector("#token-input-Categories_SelectedItems"), courseData.getCourseCategory());
     }
 
     private void typeCategory(By locator, String text) {
@@ -63,7 +64,8 @@ public class CourseHelper extends BaseHelper {
 
     public void selectCourseByName(String courseName) {
         if (courseName != null) {
-            click(By.xpath("//span[@title='" + courseName + "']"));
+            waitElementIsNotVisible(By.xpath("//div/span[text()='" + courseName + "']/../../..//div[contains(@class, 'ms-Spinner')]"), 80);
+            click(By.xpath("//div[@class='ms-List-page']//span[contains(text(),'" + courseName + "')]//.."));
         }
         click(By.xpath("//div[@class='ms-List-page']//span[contains(text(),'')]"));
     }
@@ -77,4 +79,7 @@ public class CourseHelper extends BaseHelper {
         waitElementIsNotVisible(By.xpath("//span//button[@class= 'ms-Button ms-Button--primary css-18s71b6']"), 5);
     }
 
+    public boolean isCourseExist() {
+        return isElementPresent(By.xpath("//div[@class='ms-List-page']//span[contains(text(),'')]"));
+    }
 }
