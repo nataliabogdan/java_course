@@ -6,11 +6,11 @@ public class LoginTest extends TestBase {
 
     @Test
     public void testLogin() {
-        goToCourseCatalog();
-        initCourseCreation();
-        fillCourseForm("e1q", "qqq", "elearning category");
-        submitCourseCreation();
-        returnToCourseListPage();
+        app.goToCourseCatalog();
+        app.initCourseCreation();
+        app.fillCourseForm("e1q", "qqq", "elearning category");
+        app.submitCourseCreation();
+        app.returnToCourseListPage();
     }
 
 }
