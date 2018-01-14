@@ -8,6 +8,8 @@
       <module name="java_lms365_test" target="1.8" />
       <module name="sandbox_main" target="1.8" />
       <module name="sandbox_test" target="1.8" />
+      <module name="testFolder_main" target="1.8" />
+      <module name="testFolder_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
