@@ -24,15 +24,21 @@ public class LoginTest {
 
     public void testLogin(){
         wd.get("https://lms365qa.sharepoint.com/sites/basic flow/SitePages/Home.aspx");
-        wd.findElement(By.name("loginfmt")).click();
-        wd.findElement(By.name("loginfmt")).clear();
-        wd.findElement(By.name("loginfmt")).sendKeys("t3@lms365qa.onmicrosoft.com");
-        wd.findElement(By.cssSelector("input#idSIButton9")).click();
+        type(By.name("loginfmt"), "t3@lms365qa.onmicrosoft.com");
+        click(By.cssSelector("input#idSIButton9"));
         waitElementIsVisible(By.name("passwd"), 10);
-        wd.findElement(By.name("passwd")).click();
-        wd.findElement(By.name("passwd")).clear();
-        wd.findElement(By.name("passwd")).sendKeys("!QAZ2wsx");
-        wd.findElement(By.xpath("//input[@type='submit']")).click();
+        type(By.name("passwd"), "!QAZ2wsx");
+        click(By.xpath("//input[@type='submit']"));
+    }
+
+    private void type(By locator, String text) {
+        click(locator);
+        wd.findElement(locator).clear();
+        wd.findElement(locator).sendKeys(text);
+    }
+
+    private void click(By locator) {
+        wd.findElement(locator).click();
     }
 
     private void waitElementIsVisible(By locator, int seconds) {
