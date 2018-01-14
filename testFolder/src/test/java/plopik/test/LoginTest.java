@@ -1,3 +1,5 @@
+package plopik.test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,27 +20,27 @@ public class LoginTest {
         wd = new ChromeDriver();
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         wd.manage().window().maximize();
+        wd.get("https://lms365qa.sharepoint.com/sites/basic flow/SitePages/Home.aspx");
+        login("t3@lms365qa.onmicrosoft.com","!QAZ2wsx" );
+
     }
 
     @Test
-
     public void testLogin(){
-        wd.get("https://lms365qa.sharepoint.com/sites/basic flow/SitePages/Home.aspx");
-        type(By.name("loginfmt"), "t3@lms365qa.onmicrosoft.com");
-        click(By.cssSelector("input#idSIButton9"));
+        wd.get("https://lms365qa.sharepoint.com/sites/basic flow/_layouts/15/appredirect.aspx?instance_id={2fb42468-c7ae-4329-9e56-ebe12927573b}");
+
+    }
+
+    private void login(String loginName, String password) {
+        wd.findElement(By.name("loginfmt")).click();
+        wd.findElement(By.name("loginfmt")).clear();
+        wd.findElement(By.name("loginfmt")).sendKeys(loginName);
+        wd.findElement(By.cssSelector("input#idSIButton9")).click();
         waitElementIsVisible(By.name("passwd"), 10);
-        type(By.name("passwd"), "!QAZ2wsx");
-        click(By.xpath("//input[@type='submit']"));
-    }
-
-    private void type(By locator, String text) {
-        click(locator);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
-    }
-
-    private void click(By locator) {
-        wd.findElement(locator).click();
+        wd.findElement(By.name("passwd")).click();
+        wd.findElement(By.name("passwd")).clear();
+        wd.findElement(By.name("passwd")).sendKeys(password);
+        wd.findElement(By.xpath("//input[@type='submit']")).click();
     }
 
     private void waitElementIsVisible(By locator, int seconds) {
