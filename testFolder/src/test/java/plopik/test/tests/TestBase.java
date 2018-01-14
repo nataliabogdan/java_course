@@ -1,7 +1,8 @@
-package plopik.test;
+package plopik.test.tests;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import plopik.test.applicationManager.ApplicationManager;
 
 public class TestBase {
 
