@@ -1,4 +1,4 @@
-package plopik.lms365.sandbox;
+package plopik.sandbox;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

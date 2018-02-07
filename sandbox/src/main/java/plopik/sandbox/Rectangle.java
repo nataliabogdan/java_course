@@ -1,4 +1,4 @@
-package plopik.lms365.sandbox;
+package plopik.sandbox;
 
 public class Rectangle {
     public int a;
