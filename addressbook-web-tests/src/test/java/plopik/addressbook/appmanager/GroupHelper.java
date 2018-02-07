@@ -28,9 +28,9 @@ public class GroupHelper extends BaseHelper {
         click(By.name("delete"));
     }
 
-    public void selectGroup() {
-        click(By.xpath("//span/input[contains(@type, 'checkbox')]"));
-        //wd.findElementByXPath("//span/input[contains(@type, 'checkbox')]").click();
+    public void selectGroup(int index) {
+        wd.findElements(By.xpath("//span/input[contains(@type, 'checkbox')]")).get(index).click();
+//        click(By.xpath("//span/input[contains(@type, 'checkbox')]"));
     }
 
     public void initGroupModification() {

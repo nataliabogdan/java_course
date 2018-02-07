@@ -41,8 +41,8 @@ public class ContactHelper extends BaseHelper {
         acceptAlert();
     }
 
-    public void selectContact() {
-        click(By.xpath("//input[contains(@name, 'selected[]')]"));
+    public void selectContact(int index) {
+        wd.findElements(By.xpath("//input[contains(@name, 'selected[]')]")).get(index).click();
     }
 
     public void initContactModification() {
