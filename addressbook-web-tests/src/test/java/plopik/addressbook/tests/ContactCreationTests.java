@@ -12,8 +12,4 @@ public class ContactCreationTests extends TestBase {
         app.getContactHelper().createContact(new ContactData("Natalia", "Dzikun", null, "group1"), true);
         app.getNavigationHelper().returnToContactPage();
     }
-
-
-
-
 }
