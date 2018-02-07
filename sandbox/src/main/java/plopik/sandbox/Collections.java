@@ -26,7 +26,7 @@ public class Collections {
 //        languages.add("C#");
 //        languages.add("JavaScript");
 
-        List<String> languages = Arrays.asList("Java", "C#", "PHP", "JavaScript"); //преобразование массива в списки (объ)
+        List<String> languages = Arrays.asList("Java", "C#", "PHP", "JavaScript"); //преобразование массива в списки (объект    )
 
         for (String l: languages){ // для списка 1 реализация
             System.out.println("Я хочу выучить " + l);
