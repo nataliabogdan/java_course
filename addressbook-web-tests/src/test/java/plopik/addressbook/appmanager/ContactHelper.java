@@ -62,4 +62,8 @@ public class ContactHelper extends BaseHelper {
     public boolean isContactExist() {
         return isElementPresent(By.xpath("//input[contains(@name, 'selected[]')]"));
     }
+
+    public int getContactCount() {
+        return wd.findElements(By.name("selected[]")).size();
+    }
 }
