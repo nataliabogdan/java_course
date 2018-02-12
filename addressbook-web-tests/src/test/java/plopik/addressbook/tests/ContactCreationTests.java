@@ -3,7 +3,6 @@ package plopik.addressbook.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import plopik.addressbook.model.ContactData;
-import plopik.addressbook.model.GroupData;
 
 import java.util.Comparator;
 import java.util.List;

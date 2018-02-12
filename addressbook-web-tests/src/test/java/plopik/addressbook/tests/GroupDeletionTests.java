@@ -1,9 +1,9 @@
 package plopik.addressbook.tests;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import plopik.addressbook.model.GroupData;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class GroupDeletionTests extends TestBase {
@@ -12,8 +12,7 @@ public class GroupDeletionTests extends TestBase {
     @Test
     public void testGroupDeletion() {
         app.getNavigationHelper().gotoGroupPage();
-        if(!app.getGroupHelper().isGroupExist())
-        {
+        if (!app.getGroupHelper().isGroupExist()) {
             app.getGroupHelper().createGroup(new GroupData("group1", null, "edit3"));
         }
         List<GroupData> before = app.getGroupHelper().getGroupList();
