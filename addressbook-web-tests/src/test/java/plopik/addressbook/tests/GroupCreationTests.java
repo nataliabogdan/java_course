@@ -24,13 +24,14 @@ public class GroupCreationTests extends TestBase {
 //        int max = 0;
 //        for (GroupData g: after) { // цикл по всем элементам, ищем элемент с максимальным идентификатором
 //            if (g.getId() > max){
-//                max = g.getId(); //мак присваеваем новый айди
+//                max = g.getId(); //макс присваеваем новый айди
 //            }
-//        }
 
-        group.setId(after.stream().max(Comparator.comparingInt(GroupData::getId)).get().getId()); //превращаем список в поток
         before.add(group);
-        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));// преобразуем списки в множества и сравниваем
+        Comparator<? super GroupData> byId = (g1, g2) -> Integer.compare(g1.getId(), g2.getId());
+        before.sort(byId);// упорядочиваем список
+        after.sort(byId);
+        Assert.assertEquals(after, before);// преобразуем списки в множества и сравниваем
 
     }
 }
