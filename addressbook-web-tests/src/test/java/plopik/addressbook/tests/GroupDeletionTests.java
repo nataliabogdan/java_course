@@ -24,7 +24,8 @@ public class GroupDeletionTests extends TestBase {
         List<GroupData> after = app.getGroupHelper().getGroupList();
         Assert.assertEquals(after.size(), before.size() - 1);
 
+        before.remove(before.size() - 1); //удаляем индекс, переменная before ссылается на старый список в котором удален ненужный элемент
+        Assert.assertEquals(before, after);
+
     }
-
-
 }
